@@ -1,0 +1,33 @@
+.logo {
+    background-image: url('/clients/e36d2484-d78e-32b8-8dc9-e6ba81be1cfc/logo.png');
+    height: 35px;
+    width: 103px;
+    margin: 10px;
+}
+
+header.container-fluid {
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 0px 2px 2px rgba(0, 0, 0, 0.098), 0px 0px 5px 1px rgba(0, 0, 0, 0.084);
+}
+
+header img {
+    margin: 20px 10px;
+}
+
+.main {
+    margin-top: 20px;
+}
+.subtitle {
+    margin-top: 20px;
+}
+
+.main .btn-group {
+    width: 100%;
+}
+
+.leave-form-panel {
+    /*box-shadow: 5px 5px 3px 0px #DDDDDD;*/
+}
+
+.page-header {
+    margin-top: 10px !important;
+}

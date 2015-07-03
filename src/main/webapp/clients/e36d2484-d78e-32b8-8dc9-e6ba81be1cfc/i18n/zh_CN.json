@@ -1,0 +1,17 @@
+{
+    "hello": "\u4F60\u597D",
+    "account.page": {
+        "title": "\u4EBA\u529B\u8D44\u6E90\u7BA1\u7406\u5FAE\u4FE1\u5E73\u53F0"
+    },
+    "form": {
+        "flow": {
+            "PTO": {
+                "title": "\u5458\u5DE5\u4F11\u5047\u7533\u8BF7\u8868",
+                "fields": {
+                    "startDate": "\u5F00\u59CB\u65E5\u671F",
+                    "endDate": "\u7ED3\u675F\u65E5\u671F"
+                }
+            }
+        }
+    }
+}

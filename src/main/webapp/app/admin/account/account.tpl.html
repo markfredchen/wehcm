@@ -1,0 +1,14 @@
+<form role="form">
+    <div class="form-group">
+        <label for="accountOID">AccountOID</label>
+        <input type="text" id="accountOID" name="accountOID" ng-model="account.accountOID"/>
+    </div>
+    <div class="form-group">
+        <label>Custom CSS</label>
+        <div class="button" ngf-select ng-model="customCSSFile" ngf-multiple="false">Select File</div>
+    </div>
+
+    {{account}}
+
+    <button class="btn btn-primary" ng-click="upload()" >Upload</button>
+</form>

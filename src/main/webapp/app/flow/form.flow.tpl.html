@@ -1,0 +1,27 @@
+<header class="container-fluid">
+    <div class="container">
+        <div class="pull-left logo"/>
+
+        <div class="pull-left subtitle"><h4 translate="account.page.title"></h4></div>
+    </div>
+</header>
+<div class="container main">
+    <div class="page-header">
+        <h3>{{ 'form.flow.' + config.flowName + '.title'| translate}}</h3>
+    </div>
+    <form role="form" ng-submit="submit()">
+        <div class="form-group" ng-repeat="field in config.fields" data-ng-switch on="field.inputType">
+            <div ng-switch-when="text">
+                <label>{{'form.flow.' + config.flowName + '.fields.' + field.labelKey | translate}}</label>
+                <input type="text" class="form-control" ng-model="data[field.name]"/>
+            </div>
+            <div ng-switch-when="date">
+                <label>{{'form.flow.' + config.flowName + '.fields.' + field.labelKey | translate}}</label>
+                <input type="text" class="form-control" pick-a-date="data[field.name]"/>
+            </div>
+        </div>
+        <div class="btn-group"><button class="btn btn-primary btn-block" type="submit" translate="common.label.buttons.submit"></button></div>
+    </form>
+
+    <p>{{'hello' | translate}}</p>
+</div>

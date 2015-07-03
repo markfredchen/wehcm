@@ -1,0 +1,34 @@
+server:
+    port: 8080
+
+spring:
+    profiles:
+        active: dev
+    datasource:
+        dataSourceClassName: org.h2.jdbcx.JdbcDataSource
+        url: jdbc:h2:mem:wehcm
+        databaseName:
+        serverName:
+        username:
+        password:
+
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        database: H2
+        openInView: false
+        show_sql: true
+        generate-ddl: true
+        hibernate:
+            ddl-auto: create-drop
+            naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+
+wehcm:
+    account.path: /Users/markfredchen/Workspace/MCWorkshop/Projects/wehcm/workspace/wehcm/src/main/webapp/clients/
+    smtp.host: smtp.163.com
+    smtp.port: 994
+    smtp.user: markfredchen@163.com
+    smtp.password: Markfred23
+    smtp.from: noreply@wehcm.com
+    smtp.fromDisplayName: WeHCM
+
+
