@@ -1,8 +1,12 @@
 package com.mcworkshop.wehcm.web.rest.resource;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Created by markfredchen on 6/24/15.
  */
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class FieldResource {
     private String name;
     private String labelKey;

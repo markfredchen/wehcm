@@ -2,6 +2,7 @@ package com.mcworkshop.wehcm.web.rest.controller;
 
 import com.mcworkshop.wehcm.core.exception.ValidationException;
 import com.mcworkshop.wehcm.core.persistence.AccountRepository;
+import com.mcworkshop.wehcm.web.rest.resource.MapResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ImportResource;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
@@ -20,7 +22,7 @@ import java.util.UUID;
  */
 @Controller
 @RequestMapping(value = "/api/accounts")
-@PropertySource("classpath:config/application.yml")
+@PropertySource("classpath:application.properties")
 public class AccountController extends BaseController{
 
     @Autowired
@@ -58,6 +60,15 @@ public class AccountController extends BaseController{
         } else {
             throw new ValidationException();
         }
+    }
+
+    @RequestMapping(value = "/accountOID", method = RequestMethod.GET)
+    @ResponseBody
+    public MapResource getAccountOIDByDomainName(HttpServletRequest request){
+        String serverName = request.getServerName();
+        System.out.println(serverName);
+        MapResource result = new MapResource("accountOID", accountRepository.findOneByDomain(serverName).getAccountOID());
+        return result;
     }
 
 }

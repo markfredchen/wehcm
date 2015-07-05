@@ -3,9 +3,15 @@
  */
 'use strict';
 angular.module('wehcmApp')
-    .controller('FlowController', function ($scope, $location, angularLoad, $http,  URLBuilder) {
-        $scope.config = {};
+    .controller('FormFlowController', function ($scope, $location, angularLoad, $http, config, accountOID) {
+        console.log(accountOID);
+        console.log(config);
+        $scope.config = config;
         $scope.data = {};
+        $scope.data.messageOID = $scope.config.messageOID;
+        $scope.data.fromUser = $scope.config.username;
+        $scope.data.accountOID = accountOID;
+        $scope.data.flow = $scope.config.flowName;
 
         $scope.submit = function () {
             $http({
@@ -17,20 +23,6 @@ angular.module('wehcmApp')
                 console.log(status);
             })
         };
-
-        $scope.init = function () {
-            var url = URLBuilder.build('/form/flow', {userOID: $location.search().userOID, flowOID: $location.search().flowOID});
-
-            $http.get(url).success(function(data, status, headers, config) {
-                $scope.config = data;
-                if(data.hasCSS) {
-                    angularLoad.loadCSS('/clients/' + data.accountOID + '/default.css')
-                }
-            })
-
-        };
-
-        $scope.init();
 
     }).config(function ($translateProvider) {
         $translateProvider.useLoader('AccountMessageLoader');

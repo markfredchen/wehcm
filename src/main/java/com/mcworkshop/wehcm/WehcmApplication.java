@@ -96,7 +96,6 @@ public class WehcmApplication implements CommandLineRunner {
         field2.setIsReadonly(false);
 
         FormFlow flow = new FormFlow();
-        flow.setFlowOID(UUID.nameUUIDFromBytes("PTO".getBytes()));
         flow.setName("PTO");
         flow.setAccount(account);
         flow.setFields(Arrays.asList(field2, field1));
@@ -110,7 +109,7 @@ public class WehcmApplication implements CommandLineRunner {
         message.setFlowName("leave");
         message.setFromUser("markfredchen");
         message.setToUser("komixu");
-        message.setData("{\"numberOfLeaveDays\": \"2.5\", \"startDate\": \"2015/06/02\", \"endDate\": \"2015/06/04\"}");
+        message.setData("{\"1|numberOfLeaveDays\": \"2.5\", \"2|startDate\": \"2015/06/02\", \"3|endDate\": \"2015/06/04\"}");
         JSONArray actions = new JSONArray();
         actions.put("approve");
         actions.put("decline");

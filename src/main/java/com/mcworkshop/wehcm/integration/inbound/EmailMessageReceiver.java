@@ -9,7 +9,6 @@ import com.mcworkshop.wehcm.core.persistence.PassiveMessageRepository;
 import com.mcworkshop.wehcm.core.persistence.UserRepository;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.*;
 import org.springframework.stereotype.Service;
 
 import javax.mail.*;
@@ -54,12 +53,13 @@ public class EmailMessageReceiver {
                 if(message.getSubject().matches("[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}")) {
                     JSONObject data = new JSONObject(message.getContent());
                     PassiveMessage pm = new PassiveMessage();
-                    pm.setMessageOID(UUID.fromString(data.getString(PASSIVE_MESSAGE_KEY_MESSAGE_OID)));
-                    pm.setFlowName(data.getString(PASSIVE_MESSAGE_KEY_FLOW_NAME));
-                    pm.setData(data.getJSONObject(PASSIVE_MESSAGE_KEY_DATA));
+                    pm.setMessageOID(UUID.fromString(data.getString(MESSAGE_KEY_MESSAGE_OID)));
+                    pm.setAccountOID(UUID.fromString(data.getString(MESSAGE_KEY_ACCOUNT_OID)));
+                    pm.setFlowName(data.getString(MESSAGE_KEY_FLOW_NAME));
+                    pm.setData(data.getJSONObject(MESSAGE_KEY_DATA));
                     pm.setActions(data.getJSONArray(PASSIVE_MESSAGE_KEY_ACTIONS));
                     pm.setToUser(data.getString(PASSIVE_MESSAGE_KEY_TO_USER));
-                    pm.setFromUser(data.getString(PASSIVE_MESSAGE_KEY_FROM_USER));
+                    pm.setFromUser(data.getString(MESSAGE_KEY_FROM_USER));
                     pm.setStatus(MessageStatus.PENDING);
                     messageRepository.save(pm);
                     message.setFlag(Flags.Flag.DELETED, true);

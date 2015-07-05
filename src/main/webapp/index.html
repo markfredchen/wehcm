@@ -23,7 +23,7 @@
     your browser</a> to improve your experience.</p>
 <![endif]-->
 
-<div ui-view></div>
+<div ui-view="content"></div>
 
 <!-- build:js(.) scripts/vendor.js -->
 <!-- bower:js -->
@@ -45,19 +45,21 @@
 <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
 <script src="bower_components/angular-native-picker/build/angular-datepicker.js"></script>
 <script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,src/main/webapp}) scripts/scripts.js -->
 <script src="app/app.js"></script>
+<script src="app/wechat/wechat.js"></script>
 <script src="components/url.builder.js"></script>
 <script src="components/message.loader.js"></script>
 <script src="app/admin/account/account.state.js"></script>
 <script src="app/admin/account/account.controller.js"></script>
-<script src="app/flow/form.flow.state.js"></script>
-<script src="app/flow/form.flow.controller.js"></script>
-<script src="app/flow/passive.flow.controller.js"></script>
-<script src="app/flow/passive.flow.state.js"></script>
+<script src="app/wechat/flow/form/form.flow.state.js"></script>
+<script src="app/wechat/flow/form/form.flow.controller.js"></script>
+<script src="app/wechat/flow/passive/passive.flow.controller.js"></script>
+<script src="app/wechat/flow/passive/passive.flow.state.js"></script>
 
 <!-- endbuild -->
 </body>

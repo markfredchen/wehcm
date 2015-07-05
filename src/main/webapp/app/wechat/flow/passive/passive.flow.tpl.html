@@ -7,16 +7,17 @@
 </header>
 <div class="container main">
     <div class="page-header">
-        <h3>{{config.flowName}}</h3>
+        <h3>{{ 'passive.flow.' + config.flowName + '.title' | translate }}</h3>
     </div>
     <form role="form">
         <div class="form-group" ng-repeat="field in config.data">
-            <label>{{field.name}}</label>
+            <label>{{ 'passive.flow.' + config.flowName + '.fields.' + field.name | translate }}</label>
             <div>{{field.value}}</div>
         </div>
         <div class="button-group">
-            <button class="btn btn-primary btn-block" ng-repeat="action in config.actions" ng-click="makeAction(action)">{{action}}</button>
+            <button class="btn btn-primary btn-block" ng-repeat="action in config.actions" ng-click="makeAction(action)">
+                {{'passive.flow.' + config.flowName + '.actions.' + action | translate }}
+            </button>
         </div>
     </form>
-    {{data}}
 </div>

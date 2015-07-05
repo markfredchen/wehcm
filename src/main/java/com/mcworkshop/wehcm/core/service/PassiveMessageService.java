@@ -57,7 +57,7 @@ public class PassiveMessageService {
         MessageSender messageSender = getMessageSender(account.getIntegrationType());
         // Construct Passive Message Response Data
         JSONObject result = new JSONObject();
-        result.put(WeHCMConstants.PASSIVE_MESSAGE_KEY_MESSAGE_OID, messageOID.toString());
+        result.put(WeHCMConstants.MESSAGE_KEY_MESSAGE_OID, messageOID.toString());
         result.put(WeHCMConstants.PASSIVE_MESSAGE_KEY_ACTION, action);
         messageSender.sendPassiveMessage(account, result);
         // Update passiveMessage status

@@ -4,10 +4,8 @@
 'use strict';
 angular.module('wehcmApp')
     .controller('PassiveFlowController', function ($scope, $http, $location, angularLoad, data) {
-        $scope.data = data;
 
-        $scope.config = null;
-        $scope.messageOID = $location.search().messageOID;
+        $scope.config = data;
 
         $scope.init = function () {
             console.log($scope.messageOID);
@@ -25,13 +23,14 @@ angular.module('wehcmApp')
         };
 
         $scope.makeAction = function (action) {
-            $http.post('/passive/flow/action', {messageOID: $scope.messageOID, action: action})
+            console.log($scope.config.messageOID);
+            $http.post('/passive/flow/action', {messageOID: $scope.config.messageOID, action: action})
                 .success(function (data, status) {
                     console.log(status);
+                    console.log(data);
                 })
         };
 
-        $scope.init();
 
 
     }).config(function ($translateProvider) {

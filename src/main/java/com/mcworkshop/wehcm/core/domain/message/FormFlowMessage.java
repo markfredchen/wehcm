@@ -5,4 +5,7 @@ package com.mcworkshop.wehcm.core.domain.message;
  */
 public class FormFlowMessage extends Message {
 
+
+
+
 }

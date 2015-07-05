@@ -20,9 +20,6 @@ abstract public class Flow extends DomainObject {
     protected Long flowID;
 
     @NotNull
-    protected UUID flowOID;
-
-    @NotNull
     protected String name;
     @NotNull
     protected String msgKey;
@@ -33,14 +30,6 @@ abstract public class Flow extends DomainObject {
 
     public void setFlowID(Long flowID) {
         this.flowID = flowID;
-    }
-
-    public UUID getFlowOID() {
-        return flowOID;
-    }
-
-    public void setFlowOID(UUID flowOID) {
-        this.flowOID = flowOID;
     }
 
     public String getName() {

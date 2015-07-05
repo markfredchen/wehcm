@@ -37,6 +37,7 @@ module.exports = function(config) {
       '../main/webapp/bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js',
       '../main/webapp/bower_components/angular-native-picker/build/angular-datepicker.js',
       '../main/webapp/bower_components/angular-translate-loader-url/angular-translate-loader-url.js',
+      '../main/webapp/bower_components/angular-sanitize/angular-sanitize.js',
       '../main/webapp/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       '../main/webapp/scripts/**/*.js',

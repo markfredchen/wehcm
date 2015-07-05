@@ -3,6 +3,7 @@ package com.mcworkshop.wehcm.integration.outbound;
 import com.mcworkshop.wehcm.config.EmailSettings;
 import com.mcworkshop.wehcm.constant.WeHCMConstants;
 import com.mcworkshop.wehcm.core.domain.Account;
+import com.mcworkshop.wehcm.core.exception.SystemException;
 import org.apache.commons.mail.DefaultAuthenticator;
 import org.apache.commons.mail.Email;
 import org.apache.commons.mail.EmailException;
@@ -30,12 +31,12 @@ public class EmailMessageSender implements MessageSender {
             email.setSslSmtpPort(emailSettings.getPort());
             email.setSSLOnConnect(true);
             email.setFrom(emailSettings.getFrom());
-            email.setSubject(result.getString(WeHCMConstants.PASSIVE_MESSAGE_KEY_MESSAGE_OID));
+            email.setSubject(result.getString(WeHCMConstants.MESSAGE_KEY_MESSAGE_OID));
             email.setMsg(result.toString());
             email.addTo(new JSONObject(account.getTarget()).getString(WeHCMConstants.EMAIL_CONFIG_TARGET_EMAIL_ADDRESS));
             email.send();
         } catch (EmailException e) {
-            e.printStackTrace();
+            throw new SystemException(e);
         }
     }
 
@@ -48,7 +49,7 @@ public class EmailMessageSender implements MessageSender {
             email.setSslSmtpPort(emailSettings.getPort());
             email.setSSLOnConnect(true);
             email.setFrom(emailSettings.getFrom());
-            email.setSubject(result.getString(WeHCMConstants.PASSIVE_MESSAGE_KEY_MESSAGE_OID));
+            email.setSubject(result.getString(WeHCMConstants.MESSAGE_KEY_MESSAGE_OID));
             email.setMsg(result.toString());
             email.addTo(new JSONObject(account.getTarget()).getString(WeHCMConstants.EMAIL_CONFIG_TARGET_EMAIL_ADDRESS));
             email.send();

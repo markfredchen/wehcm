@@ -13,7 +13,8 @@ angular.module('wehcmApp', [
     'angularLoad',
     'angular-datepicker',
     'pascalprecht.translate',
-    'URLBuilder'
+    'URLBuilder',
+    'ngSanitize'
     ])
     .config(function ($urlRouterProvider, $httpProvider, $translateProvider) {
         $urlRouterProvider.otherwise('/');
@@ -23,7 +24,7 @@ angular.module('wehcmApp', [
         $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
 
         $translateProvider.useLoader('MessageLoader');
-        $translateProvider.useSanitizeValueStrategy('sanitize');
+        $translateProvider.useSanitizeValueStrategy('escape');
         $translateProvider.preferredLanguage('zh_CN');
         $translateProvider.useCookieStorage();
 

@@ -2,6 +2,7 @@ package com.mcworkshop.wehcm.core.domain.message;
 
 import com.mcworkshop.wehcm.core.domain.User;
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -37,5 +38,17 @@ public class PassiveMessage extends Message{
 
     public void setActions(String  actions) {
         this.actions = new JSONArray(actions);
+    }
+
+
+    public static String PASSIVE_MESSAGE_KEY_TO_USER = "toUser";
+    public static String PASSIVE_MESSAGE_KEY_ACTIONS = "actions";
+    public static String PASSIVE_MESSAGE_KEY_ACTION = "action";
+    @Override
+    public JSONObject toJSONObject() {
+        JSONObject message = super.toJSONObject();
+        message.put(PASSIVE_MESSAGE_KEY_TO_USER, toUser);
+        message.put(PASSIVE_MESSAGE_KEY_ACTIONS, actions);
+        return message;
     }
 }

@@ -14,11 +14,12 @@ public interface WeHCMConstants {
     String EMAIL_CONFIG_TARGET_EMAIL_ADDRESS = "targetEmailAddress";
 
 
-    String PASSIVE_MESSAGE_KEY_MESSAGE_OID = "messageOID";
-    String PASSIVE_MESSAGE_KEY_FLOW_NAME = "flow";
-    String PASSIVE_MESSAGE_KEY_FROM_USER = "fromUser";
+    String MESSAGE_KEY_MESSAGE_OID = "messageOID";
+    String MESSAGE_KEY_ACCOUNT_OID = "accountOID";
+    String MESSAGE_KEY_FLOW_NAME = "flow";
+    String MESSAGE_KEY_FROM_USER = "fromUser";
+    String MESSAGE_KEY_DATA = "data";
     String PASSIVE_MESSAGE_KEY_TO_USER = "toUser";
-    String PASSIVE_MESSAGE_KEY_DATA = "data";
     String PASSIVE_MESSAGE_KEY_ACTIONS = "actions";
     String PASSIVE_MESSAGE_KEY_ACTION = "action";
 }

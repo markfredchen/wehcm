@@ -2,6 +2,7 @@ package com.mcworkshop.wehcm.core.persistence;
 
 import com.mcworkshop.wehcm.core.domain.flow.FormFlow;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.UUID;
 
@@ -10,5 +11,6 @@ import java.util.UUID;
  */
 public interface FormFlowRepository extends JpaRepository<FormFlow, Long> {
 
-    FormFlow findOneByFlowOID(UUID flowOID);
+    @Query("SELECT ff FROM FormFlow ff WHERE ff.account.accountOID = ?1 and ff.name = ?2")
+    FormFlow findOneByAccountOIDAndName(UUID accountOID, String name);
 }

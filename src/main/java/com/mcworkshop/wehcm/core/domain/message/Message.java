@@ -1,5 +1,6 @@
 package com.mcworkshop.wehcm.core.domain.message;
 
+import com.mcworkshop.wehcm.core.domain.DomainObject;
 import org.json.JSONObject;
 
 import javax.persistence.GeneratedValue;
@@ -13,7 +14,7 @@ import java.util.UUID;
  * Created by markfredchen on 6/15/15.
  */
 @MappedSuperclass
-abstract class Message {
+abstract public class Message extends DomainObject {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -91,5 +92,22 @@ abstract class Message {
 
     public void setStatus(MessageStatus status) {
         this.status = status;
+    }
+
+
+    public static String MESSAGE_KEY_MESSAGE_OID = "messageOID";
+    public static String MESSAGE_KEY_ACCOUNT_OID = "accountOID";
+    public static String MESSAGE_KEY_FLOW_NAME = "flow";
+    public static String MESSAGE_KEY_FROM_USER = "fromUser";
+    public static String MESSAGE_KEY_DATA = "data";
+
+    public JSONObject toJSONObject() {
+        JSONObject message = new JSONObject();
+        message.put(MESSAGE_KEY_MESSAGE_OID, messageOID.toString());
+        message.put(MESSAGE_KEY_ACCOUNT_OID, accountOID.toString());
+        message.put(MESSAGE_KEY_FLOW_NAME, flowName);
+        message.put(MESSAGE_KEY_FROM_USER, fromUser);
+        message.put(MESSAGE_KEY_DATA, data);
+        return message;
     }
 }

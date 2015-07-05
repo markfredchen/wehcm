@@ -65,4 +65,16 @@ public class EmailSettings {
     public void setFromDisplayName(String fromDisplayName) {
         this.fromDisplayName = fromDisplayName;
     }
+
+    @Override
+    public String toString() {
+        return "EmailSettings{" +
+            "host='" + host + '\'' +
+            ", port='" + port + '\'' +
+            ", user='" + user + '\'' +
+            ", password='" + password + '\'' +
+            ", from='" + from + '\'' +
+            ", fromDisplayName='" + fromDisplayName + '\'' +
+            '}';
+    }
 }

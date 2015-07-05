@@ -10,10 +10,8 @@ public class FormFlowResource {
     private String accountOID;
     private String userOID;
     private String username;
-    private String flowOID;
     private String flowName;
     private List<FieldResource> fields;
-    private boolean hasCSS;
 
 
     public String getMessageOID() {
@@ -48,14 +46,6 @@ public class FormFlowResource {
         this.username = username;
     }
 
-    public String getFlowOID() {
-        return flowOID;
-    }
-
-    public void setFlowOID(String flowOID) {
-        this.flowOID = flowOID;
-    }
-
     public String getFlowName() {
         return flowName;
     }
@@ -70,13 +60,5 @@ public class FormFlowResource {
 
     public void setFields(List<FieldResource> fields) {
         this.fields = fields;
-    }
-
-    public boolean isHasCSS() {
-        return hasCSS;
-    }
-
-    public void setHasCSS(boolean hasCSS) {
-        this.hasCSS = hasCSS;
     }
 }
