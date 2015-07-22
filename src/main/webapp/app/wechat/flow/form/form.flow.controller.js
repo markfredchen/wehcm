@@ -3,7 +3,7 @@
  */
 'use strict';
 angular.module('wehcmApp')
-    .controller('FormFlowController', function ($scope, $location, angularLoad, $http, config, accountOID) {
+    .controller('FormFlowController', function ($scope, $location, angularLoad, $http, $state, config, accountOID) {
         console.log(accountOID);
         console.log(config);
         $scope.config = config;
@@ -20,7 +20,7 @@ angular.module('wehcmApp')
                 data: $.param({data: JSON.stringify($scope.data) }),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
             }).success(function (data,status) {
-                console.log(status);
+                $state.go('form-flow-success');
             })
         };
 

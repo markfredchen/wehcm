@@ -36,6 +36,7 @@ public class EmailMessageReceiver {
     public void synchronizeEmailMessages() throws Exception {
         List<Account> accounts = accountRepository.findByIntegrationType(IntegrationType.EMAIL);
         for (Account account : accounts) {
+            System.out.println(account.getName());
             JSONObject emailConfig = new JSONObject(account.getTarget());
             Properties pros = new Properties();
             Session session = Session.getDefaultInstance(pros);

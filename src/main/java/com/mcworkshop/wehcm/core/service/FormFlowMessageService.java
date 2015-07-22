@@ -28,9 +28,8 @@ public class FormFlowMessageService {
 
     public void handleFormFlowMessage(FormFlowMessage message) {
         Account account = accountRepository.findOneByAccountOID(message.getAccountOID());
-//        MessageSender sender = getMessageSender(account.getIntegrationType());
-//        sender.sendFormFlowMessage(account, message.toJSONObject());
-        System.out.println(message.toJSONObject().toString());
+        MessageSender sender = getMessageSender(account.getIntegrationType());
+        sender.sendFormFlowMessage(account, message.toJSONObject());
     }
 
     private MessageSender getMessageSender(IntegrationType integrationType) {

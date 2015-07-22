@@ -3,7 +3,7 @@
  */
 'use strict';
 angular.module('wehcmApp')
-    .controller('PassiveFlowController', function ($scope, $http, $location, angularLoad, data) {
+    .controller('PassiveFlowController', function ($scope, $http, $location, angularLoad, $state, data) {
 
         $scope.config = data;
 
@@ -26,8 +26,7 @@ angular.module('wehcmApp')
             console.log($scope.config.messageOID);
             $http.post('/passive/flow/action', {messageOID: $scope.config.messageOID, action: action})
                 .success(function (data, status) {
-                    console.log(status);
-                    console.log(data);
+                    $state.go('passive-flow-success');
                 })
         };
 

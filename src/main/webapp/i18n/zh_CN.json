@@ -2,8 +2,18 @@
     "common": {
         "label": {
             "buttons": {
-                "submit": "\u63D0\u4EA4"
+                "submit": "提交"
             }
+        }
+    },
+    "form.flow": {
+        "success": {
+            "title": "你的申请已提交成功。"
+        }
+    },
+    "passive.flow": {
+        "success": {
+            "title": "审批成功。"
         }
     }
 }
