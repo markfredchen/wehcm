@@ -10,13 +10,10 @@ angular.module('wehcmApp')
         $scope.init = function () {
             console.log($scope.messageOID);
             $http.get('/passive/flow/' + $scope.messageOID)
-                .success(function(data, status, headers, config) {
+                .success(function (data, status, headers, config) {
                     $scope.config = data;
-                    if(data.hasCSS) {
-                        angularLoad.loadCSS('/clients/' + data.accountOID + '/default.css')
-                    }
                 }).error(function (data, status) {
-                    if(status == 405) {
+                    if (status == 405) {
 
                     }
                 });
@@ -29,9 +26,4 @@ angular.module('wehcmApp')
                     $state.go('passive-flow-success');
                 })
         };
-
-
-
-    }).config(function ($translateProvider) {
-        $translateProvider.useLoader('AccountMessageLoader');
     });

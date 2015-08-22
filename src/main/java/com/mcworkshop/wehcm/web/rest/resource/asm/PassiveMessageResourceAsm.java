@@ -27,7 +27,8 @@ public class PassiveMessageResourceAsm implements ResourceAssembler<PassiveMessa
             DataFieldResource field = new DataFieldResource();
             String[] config = key.split("\\|");
             field.setSequence(Integer.valueOf(config[0]));
-            field.setName(config[1]);
+            field.setInputType(config[1]);
+            field.setName(config[2]);
             field.setValue(dataJSON.getString(key));
             pmr.getData().add(field);
         }

@@ -14,18 +14,16 @@ angular.module('wehcmApp')
                 }
             },
             resolve: {
-                config: function (URLBuilder, $location, accountOID, $http, $q) {
+                config: function (URLBuilder, $location, accountOID, $http, $q, localStorageService) {
                     var deferred = $q.defer();
                     var params = $location.search();
                     var url = URLBuilder.build('/form/flow', {
-                        userOID: params.userOID,
+                        code: params.code,
                         flowName: params.flowName,
-                        accountOID: accountOID
+                        accountOID: localStorageService.get('accountOID')
                     });
-                    console.log(accountOID);
                     $http.get(url)
                         .success(function (data) {
-                            console.log(data);
                             deferred.resolve(data);
                         }).error(function (data) {
                             deferred.reject(url);
@@ -33,5 +31,20 @@ angular.module('wehcmApp')
                     return deferred.promise;
                 }
             }
-        });
+        })
+            .state('form-flow-success', {
+                parent: 'wechat',
+                url: '/flow/success',
+                views: {
+                    'content@': {
+                        templateUrl: 'app/wechat/success/success.tpl.html',
+                        controller: 'SuccessController'
+                    }
+                },
+                resolve: {
+                    messageKey: function () {
+                        return 'form.flow.success.title';
+                    }
+                }
+            });
     }]);

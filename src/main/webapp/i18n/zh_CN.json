@@ -2,7 +2,8 @@
     "common": {
         "label": {
             "buttons": {
-                "submit": "提交"
+                "submit": "提交",
+                "close.window": "关闭窗口"
             }
         }
     },
@@ -14,6 +15,40 @@
     "passive.flow": {
         "success": {
             "title": "审批成功。"
+        }
+    },
+    "oauth2.authorize.success.title": "帐号绑定成功",
+    "error.page": {
+        "title": "你的请求发生错误",
+        "subtitle": "请关闭窗口重新尝试，或者联系系统管理员"
+    },
+    "flow": {
+        "PTO": {
+            "form": {
+                "title": "员工休假申请表"
+            },
+            "passive": {
+                "title": "员工休假申请审批",
+                "actions": {
+                    "approve": "同意",
+                    "decline": "拒绝"
+                }
+            },
+            "fields": {
+                "startDate": "开始日期",
+                "endDate": "结束日期",
+                "type": "休假类型",
+                "type-option": {
+                    "annual.leave": "年假",
+                    "leave": "事假",
+                    "sick.leave": "病假",
+                    "maternity.leave": "产假",
+                    "nursing.leave": "哺乳假",
+                    "long.sick.leave": "长病假",
+                    "injury.leave": "工伤假",
+                    "bereavement.leave": "丧假"
+                }
+            }
         }
     }
 }

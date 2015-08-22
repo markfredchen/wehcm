@@ -1,6 +1,8 @@
 package com.mcworkshop.wehcm.core.domain.flow;
 
 import com.mcworkshop.wehcm.core.domain.DomainObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.persistence.*;
 import javax.validation.constraints.Min;
@@ -25,11 +27,13 @@ public class FormField extends DomainObject {
     @NotNull
     private String inputType; // text, select, radio, checkbox
 
-    private String options;
+    private JSONArray options;
 
     private String defaultValue;
 
     private boolean isReadonly;
+
+    private JSONObject constraints;
 
     @NotNull
     @Min(value = 0)
@@ -75,11 +79,11 @@ public class FormField extends DomainObject {
         this.inputType = inputType;
     }
 
-    public String getOptions() {
+    public JSONArray getOptions() {
         return options;
     }
 
-    public void setOptions(String options) {
+    public void setOptions(JSONArray options) {
         this.options = options;
     }
 
@@ -105,5 +109,17 @@ public class FormField extends DomainObject {
 
     public void setIsReadonly(boolean isReadonly) {
         this.isReadonly = isReadonly;
+    }
+
+    public JSONObject getConstraints() {
+        return constraints;
+    }
+
+    public void setConstraints(JSONObject constraints) {
+        this.constraints = constraints;
+    }
+
+    public void setConstraints(String constraints) {
+        this.constraints = new JSONObject(constraints);
     }
 }

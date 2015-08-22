@@ -1,22 +1,17 @@
-<header class="container-fluid">
-    <div class="container">
-        <div class="pull-left logo"/>
-
-        <div class="pull-left subtitle"><h4>人力资源管理微信平台</h4></div>
-    </div>
-</header>
 <div class="container main">
     <div class="page-header">
-        <h3>{{ 'passive.flow.' + config.flowName + '.title' | translate }}</h3>
+        <h3>{{ 'flow.' + config.flowName + '.passive.title' | translate }}</h3>
     </div>
     <form role="form">
         <div class="form-group" ng-repeat="field in config.data">
-            <label>{{ 'passive.flow.' + config.flowName + '.fields.' + field.name | translate }}</label>
-            <div>{{field.value}}</div>
+            <label>{{ 'flow.' + config.flowName + '.fields.' + field.name | translate }}</label>
+            <div ng-if="field.inputType === 'select'">{{ 'flow.' + config.flowName + '.fields.' + field.name + '-option.' + field.value | translate }}</div>
+            <div ng-if="field.inputType === 'date'">{{ field.value | date : 'yyyy-MM-dd' }}</div>
+            <div ng-if="!field.inputType === 'select' || !field.inputType === 'date'">{{field.value}}</div>
         </div>
         <div class="button-group">
             <button class="btn btn-primary btn-block" ng-repeat="action in config.actions" ng-click="makeAction(action)">
-                {{'passive.flow.' + config.flowName + '.actions.' + action | translate }}
+                {{'flow.' + config.flowName + '.passive.actions.' + action | translate }}
             </button>
         </div>
     </form>

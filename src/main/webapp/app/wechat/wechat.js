@@ -3,20 +3,12 @@
  */
 'use strict';
 angular.module('wehcmApp')
-    .config(function($stateProvider){
+    .config(function ($stateProvider) {
         $stateProvider.state('wechat', {
             abstract: true,
             resolve: {
-                accountOID: function ($http, $q) {
-                    var deferred = $q.defer();
-                    $http.get('/api/accounts/accountOID')
-                        .success(function (data) {
-                            deferred.resolve(data.accountOID);
-                        })
-                        .error(function (data) {
-                            deferred.reject(data);
-                        });
-                    return deferred.promise;
+                accountOID: function (localStorageService) {
+                   return localStorageService.get('accountOID');
                 },
 
                 cssLoader: function (accountOID, angularLoad, $rootScope) {

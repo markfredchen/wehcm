@@ -6,6 +6,7 @@ package com.mcworkshop.wehcm.web.rest.resource;
 public class DataFieldResource {
     private String name;
     private String value;
+    private String inputType;
     private int sequence;
 
     public String getName() {
@@ -22,6 +23,14 @@ public class DataFieldResource {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public String getInputType() {
+        return inputType;
+    }
+
+    public void setInputType(String inputType) {
+        this.inputType = inputType;
     }
 
     public int getSequence() {

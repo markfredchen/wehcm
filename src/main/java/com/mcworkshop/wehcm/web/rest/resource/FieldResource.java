@@ -3,6 +3,8 @@ package com.mcworkshop.wehcm.web.rest.resource;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.List;
+
 /**
  * Created by markfredchen on 6/24/15.
  */
@@ -12,10 +14,12 @@ public class FieldResource {
     private String labelKey;
     private String valueType; // Sting, Integer, etc
     private String inputType; // text, select, radio, checkbox
-    private String options;
+    private List<String> options;
     private String defaultValue;
     private boolean isReadonly;
     private int sequence;
+    private ConstraintsResource constraints;
+
 
     public String getName() {
         return name;
@@ -49,11 +53,11 @@ public class FieldResource {
         this.inputType = inputType;
     }
 
-    public String getOptions() {
+    public List<String> getOptions() {
         return options;
     }
 
-    public void setOptions(String options) {
+    public void setOptions(List<String> options) {
         this.options = options;
     }
 
@@ -79,5 +83,13 @@ public class FieldResource {
 
     public void setSequence(int sequence) {
         this.sequence = sequence;
+    }
+
+    public ConstraintsResource getConstraints() {
+        return constraints;
+    }
+
+    public void setConstraints(ConstraintsResource constraints) {
+        this.constraints = constraints;
     }
 }

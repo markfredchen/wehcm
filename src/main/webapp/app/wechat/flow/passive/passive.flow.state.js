@@ -26,8 +26,20 @@ angular.module('wehcmApp')
                         });
                     return deferred.promise;
                 }
-
-
+            }
+        }).state('passive-flow-success', {
+            parent: 'wechat',
+            url: '/passive/flow/success',
+            views: {
+                'content@': {
+                    templateUrl: 'app/wechat/success/success.tpl.html',
+                    controller: 'SuccessController'
+                }
+            },
+            resolve: {
+                messageKey: function () {
+                    return 'passive.flow.success.title';
+                }
             }
         });
     }]);

@@ -31,3 +31,13 @@ header img {
 .page-header {
     margin-top: 10px !important;
 }
+
+.highcharts-button{
+    display: none;
+}
+.gauge-chart {
+    height: 250px;
+}
+.line-chart {
+    height: 350px;
+}

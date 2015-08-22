@@ -3,15 +3,14 @@
  */
 'use strict';
 angular.module('wehcmApp')
-    .controller('FormFlowController', function ($scope, $location, angularLoad, $http, $state, config, accountOID) {
-        console.log(accountOID);
-        console.log(config);
+    .controller('FormFlowController', function ($scope, $location, angularLoad, $http, $state, config, accountOID, $window) {
         $scope.config = config;
         $scope.data = {};
         $scope.data.messageOID = $scope.config.messageOID;
         $scope.data.fromUser = $scope.config.username;
         $scope.data.accountOID = accountOID;
         $scope.data.flow = $scope.config.flowName;
+        $scope.userAgent = $window.navigator.userAgent;
 
         $scope.submit = function () {
             $http({

@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -22,7 +23,12 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
 <![endif]-->
-
+<header class="container-fluid">
+    <div class="container">
+        <div class="pull-left logo"></div>
+        <div class="pull-left subtitle"><h4 translate="account.page.title"></h4></div>
+    </div>
+</header>
 <div ui-view="content"></div>
 
 <!-- build:js(.) scripts/vendor.js -->
@@ -46,23 +52,27 @@
 <script src="bower_components/angular-native-picker/build/angular-datepicker.js"></script>
 <script src="bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js({.tmp,src/main/webapp}) scripts/scripts.js -->
 <script src="app/app.js"></script>
 <script src="app/wechat/wechat.js"></script>
-<script src="components/url.builder.js"></script>
-<script src="components/message.loader.js"></script>
-<script src="app/admin/account/account.state.js"></script>
-<script src="app/admin/account/account.controller.js"></script>
+<script src="app/wechat/error/error.js"></script>
+<script src="app/wechat/success/success.js"></script>
+<script src="app/components/url.builder.js"></script>
+<script src="app/components/message.loader.js"></script>
 <script src="app/wechat/flow/form/form.flow.state.js"></script>
 <script src="app/wechat/flow/form/form.flow.controller.js"></script>
-<script src="app/wechat/flow/form/success/form.flow.success.state.js"></script>
 <script src="app/wechat/flow/passive/passive.flow.controller.js"></script>
 <script src="app/wechat/flow/passive/passive.flow.state.js"></script>
-<script src="app/wechat/flow/passive/success/passive.flow.success.state.js"></script>
-
+<script src="app/wechat/oauth2/oauth2.authorize.state.js"></script>
+<script src="app/wechat/oauth2/oauth2.authorize.controller.js"></script>
+<script src="app/components/hicharts.js"></script>
+<script src="app/components/gauge.directive.js"></script>
+<script src="app/wechat/dashboard/dashboard.js"></script>
 <!-- endbuild -->
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </body>
 </html>

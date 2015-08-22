@@ -1,32 +1,5 @@
 {
     "account.page": {
-        "title": "人力资源管理微信平台"
-    },
-    "form": {
-        "flow": {
-            "PTO": {
-                "title": "员工休假申请表",
-                "fields": {
-                    "startDate": "开始日期",
-                    "endDate": "结束日期"
-                }
-            }
-        }
-    },
-    "passive": {
-        "flow": {
-            "leave": {
-                "title": "员工休假申请审批",
-                "fields": {
-                    "numberOfLeaveDays": "休假天数",
-                    "startDate": "开始日期",
-                    "endDate": "结束日期"
-                },
-                "actions": {
-                    "approve": "同意",
-                    "decline": "拒绝"
-                }
-            }
-        }
+        "title": "HR微信助手"
     }
 }

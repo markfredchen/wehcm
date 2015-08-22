@@ -10,6 +10,7 @@ public class FormFlowResource {
     private String accountOID;
     private String userOID;
     private String username;
+    private String fullName;
     private String flowName;
     private List<FieldResource> fields;
 
@@ -60,5 +61,13 @@ public class FormFlowResource {
 
     public void setFields(List<FieldResource> fields) {
         this.fields = fields;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 }

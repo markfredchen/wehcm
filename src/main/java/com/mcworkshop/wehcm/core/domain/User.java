@@ -18,10 +18,18 @@ public class User extends DomainObject{
     private UUID userOID;
 
     @NotNull
-    private String username;
+    private String wxUserID;
+
+    private String wxUsername;
 
     @NotNull
-    private String wxUserID;
+    private String fullName;
+
+    private String mobile;
+
+    private String emailAddress;
+
+    private String avator;
 
     @ManyToOne(optional = false, cascade = {CascadeType.MERGE})
     @JoinColumn(name = "accountID", nullable = false, updatable = false)
@@ -43,14 +51,6 @@ public class User extends DomainObject{
 
     public void setUserOID(UUID userOID) {
         this.userOID = userOID;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getWxUserID() {
@@ -75,5 +75,45 @@ public class User extends DomainObject{
 
     public void setIsDeleted(boolean isDeleted) {
         this.isDeleted = isDeleted;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public String getAvator() {
+        return avator;
+    }
+
+    public void setAvator(String avator) {
+        this.avator = avator;
+    }
+
+    public String getWxUsername() {
+        return wxUsername;
+    }
+
+    public void setWxUsername(String wxUsername) {
+        this.wxUsername = wxUsername;
     }
 }

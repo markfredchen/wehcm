@@ -1,5 +1,7 @@
 package com.mcworkshop.wehcm.integration;
 
+import org.apache.commons.mail.Email;
+import org.apache.commons.mail.SimpleEmail;
 import org.junit.Test;
 
 import javax.mail.*;
@@ -18,7 +20,7 @@ public class EmailMessageProcessorTest {
         props.setProperty("mail.imaps.class", "com.sun.mail.imap.IMAPSSLStore");
         Session session = Session.getInstance(props);
         Store store = session.getStore("imaps");
-        store.connect("imap.163.com", 993, "markfredchen@163.com", "mtcazrwjtrnsagrn");
+        store.connect("imap.126.com", 993, "wehcm_system@126.com", "otkpdbcjtickfkdo");
         Folder inbox = store.getFolder("INBOX");
         inbox.open(Folder.READ_WRITE);
         Message[] messages = inbox.getMessages();
@@ -36,5 +38,19 @@ public class EmailMessageProcessorTest {
 
         inbox.close(false);
         store.close();
+    }
+
+    @Test
+    public void testSendEmail() throws Exception{
+        Email email = new SimpleEmail();
+        email.setHostName("smtp.126.com");
+        email.setAuthentication("wehcm_system@126.com", "otkpdbcjtickfkdo");
+        email.setSslSmtpPort("994");
+        email.setSSLOnConnect(true);
+        email.setFrom("wehcm_system@126.com", "WeHCM");
+        email.setSubject("Hello");
+        email.setMsg("Hello World!");
+        email.addTo("346120@qq.com");
+        email.send();
     }
 }

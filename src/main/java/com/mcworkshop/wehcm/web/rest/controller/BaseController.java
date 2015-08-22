@@ -12,6 +12,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,12 +56,12 @@ public class BaseController {
 
 
     @ExceptionHandler(Throwable.class)
-    public ResponseEntity<ExceptionDetail> handleException(Throwable e) {
-        log.error(e);
+    public ModelAndView handleException(Throwable e) {
+        e.printStackTrace();
         ExceptionDetail detail = new ExceptionDetail();
         detail.setErrorCode(ExceptionErrorCode.SYSTEM_EXCEPTION);
         detail.setMessage(e.getMessage());
-        return new ResponseEntity<>(detail, ExceptionErrorCode.SYSTEM_EXCEPTION.getHttpStatus());
+        return new ModelAndView("redirect:/#/error");
     }
 }
 
